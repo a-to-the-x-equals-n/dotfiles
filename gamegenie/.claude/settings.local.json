@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python /home/laufeyson/.helpfuls/gamegenie/gamegenie.py:*)",
+      "Bash(python gamegenie.py regex 2>&1 | head -40)",
+      "Bash(python gamegenie.py micro 2>&1 | head -30)",
+      "Bash(python gamegenie.py rust 2>&1 | head -50)",
+      "Bash(python gamegenie.py micro 2>&1 | head -25)",
+      "Bash(for sheet:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
