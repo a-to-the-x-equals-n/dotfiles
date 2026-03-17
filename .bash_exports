@@ -1,0 +1,37 @@
+# environment variables and shell startup
+
+# -- path --
+export PATH="$HOME/.dotfiles:$PATH"
+export PYTHONPATH="$HOME/.dotfiles:$PYTHONPATH"
+
+# -- browser --
+export BROWSER=~/firefox/firefox
+
+# -- windows/wsl --
+export WINDOWS_HOST=10.255.255.254
+
+# -- rust --
+. "$HOME/.cargo/env"
+export WGPU_BACKEND=gl      # use OpenGL instead of Vulkan/DirectX (egui)
+
+# -- ssh agent (one-per-session, reused by all terminals) --
+# sudo apt-get install keychain
+# if command -v keychain >/dev/null; then
+#   eval "$(keychain --eval --quiet --agents ssh --timeout 8h id_rsa)"
+# fi
+
+SOCK="${XDG_RUNTIME_DIR:-/tmp}/ssh-agent.socket"
+export SSH_AUTH_SOCK="$SOCK"
+
+ssh-add -l >/dev/null 2>&1
+rc=$?
+
+if [ $rc -eq 2 ]; then
+    rm -f "$SOCK"
+    eval "$(ssh-agent -a "$SOCK" -s)" >/dev/null
+fi
+
+ssh-add -l >/dev/null 2>&1
+if [ $? -eq 1 ]; then
+    ssh-add -t 8h ~/.ssh/id_rsa
+fi
