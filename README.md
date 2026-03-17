@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal shell config and tools for WSL (Ubuntu on Windows).
+Personal shell config and tools for WSL.
 
 ## Setup
 
@@ -16,6 +16,8 @@ source ~/.bashrc
 - Symlink `micro/` configs into `~/.config/micro/`
 
 Existing files are backed up with a `.bak` extension before being replaced.
+
+>__NOTE:__ The `.gitignore` simply holds 4 bytes: `*`. You'll have to use the -f flag to force add new files.
 
 ## Shell Commands
 
