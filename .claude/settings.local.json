@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 --version && pip3 --version)",
+      "Bash(mkdir -p ~/.dotfiles/micro && mv ~/.config/micro/settings.json ~/.dotfiles/micro/ && mv ~/.config/micro/bindings.json ~/.dotfiles/micro/ && mv ~/.config/micro/colorschemes ~/.dotfiles/micro/ && ln -s ~/.dotfiles/micro/settings.json ~/.config/micro/settings.json && ln -s ~/.dotfiles/micro/bindings.json ~/.config/micro/bindings.json && ln -s ~/.dotfiles/micro/colorschemes ~/.config/micro/colorschemes)",
+      "Bash(chmod +x /home/laufeyson/.dotfiles/setup.sh)"
+    ]
+  }
+}
